@@ -20,13 +20,10 @@ calculate fizzbuzz from 100
 do so on a button click
 externally link jquery from a cdn
 from this output of the bot
+```
 
 So now you have code in files.
 
-Some file names come with extra decoration:
-
-```
-"Markdown splitter file: `markdown_splitter.py`"
-```
+Some file names come with extra decoration: "Markdown splitter file: `markdown_splitter.py`"
 
 It still just pulls the filename based on where ticks are, but you never know. GPT output can vary.
