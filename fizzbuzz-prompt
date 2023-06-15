@@ -1,0 +1,5 @@
+write a jquery based html5 web page that produces the output of fizzbuzz.
+perform the javascript in a separate file included by the index.
+calculate fizzbuzz from 100
+do so on a button click
+externally link jquery from a cdn

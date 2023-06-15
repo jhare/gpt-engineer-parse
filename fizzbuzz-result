@@ -1,0 +1,49 @@
+index.html:
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FizzBuzz</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="hello.js"></script>
+  </head>
+  <body>
+    <button id="generate-btn">Generate FizzBuzz</button>
+    <div id="output"></div>
+  </body>
+</html>
+```
+
+hello.js:
+```js
+class FizzBuzz {
+  static generate(limit) {
+    let output = '';
+    for (let i = 1; i <= limit; i++) {
+      if (i % 3 === 0 && i % 5 === 0) {
+        output += 'FizzBuzz<br>';
+      } else if (i % 3 === 0) {
+        output += 'Fizz<br>';
+      } else if (i % 5 === 0) {
+        output += 'Buzz<br>';
+      } else {
+        output += i + '<br>';
+      }
+    }
+    return output;
+  }
+}
+
+function generateFizzBuzz() {
+  const limit = 100;
+  const fizzBuzz = FizzBuzz.generate(limit);
+  return fizzBuzz;
+}
+
+function displayFizzBuzz() {
+  const fizzBuzz = generateFizzBuzz();
+  $('#output').html(fizzBuzz);
+}
+
+$('#generate-btn').click(displayFizzBuzz);
+```
