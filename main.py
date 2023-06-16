@@ -32,7 +32,7 @@ def extract_readme(lines):
     """
     Extract the first section of the markdown file as the README.md file
 
-    :param lines: list of lin^es from the markdown file
+    :param lines: list of lines from the markdown file
     :return a tuple of the README.md file and the line number of the last line
             of the README.md file
     :rtype tuple
