@@ -48,7 +48,7 @@ def extract_readme(lines):
             lastLine = i
             readme_lines.pop()
             break
-        else:  # having else here drops off the first line of next
+        else: 
             readme_lines.append(line)
 
     readme = "\n".join(readme_lines)
