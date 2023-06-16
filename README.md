@@ -79,7 +79,19 @@ const app = express();
 const aws = require('aws-sdk');
 
 ```
-So now you have code in files.
+So now you have code in files:
+
+```
+$ tree output
+output
+├── App.js
+├── Auth0Login.js
+├── Button.js
+├── fizzbuzz_lambda.py
+├── Highlight.js
+├── README.md
+└── server.js
+```
 
 ### caveats - other formats
 Anything but labeling the filename on its own line right now breaks it.
