@@ -46,7 +46,7 @@ def extract_readme(lines):
 def main():
     destPath = 'output';
     # Define the multiline regular expression pattern
-    pattern = r'(\w+)\.(\w+)[^\n]+\n```[a-z]+\n((?:.|\n)+?)\n```'
+    pattern = r'(\w+)\.(\w+)\n```[a-z]+\n((?:.|\n)+?)\n```'
 
     # assume we're piped or redirected
     input_data = sys.stdin.read()
