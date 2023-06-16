@@ -67,20 +67,21 @@ filename.extension
 filename.extension
 [block with backticks]
 
-Lambda function in Python (fizzbuzz.py):
-[block would be here, but this has extra stuff sometimes, sometimes quoted, sometimes not
-[sometimes they make mistakes, you need to shape the prompt so that the filename is by itself]
 
 ```
 So now you have code in files.
 
 ### caveats - other formats
 Anything but labeling the filename on its own line right now breaks it.
+I prefer to suppress the descriptions with prompt shaping, we don't need them on those lines
+we are the ones that supplied the descriptions in the first place.
 
 ```
-
-```
-
-
+Lambda function in Python (fizzbuzz.py):
+[block would be here, but this has extra stuff sometimes, sometimes quoted, sometimes not
+[sometimes they make mistakes, you need to shape the prompt so that the filename is by itself]
 Some file names come with extra decoration: "some desciprtio: : `markdown_splitter.py`"
+```
+
+
 
