@@ -35,20 +35,18 @@ def extract_readme(lines):
         if line.startswith('```'):
             lastLine = i
             readmeLines.pop()
-            print(f'found last line of readme section at {lastLine}')
             break
         else: # having else here drops off the first line of next
             readmeLines.append(line)
 
     readme = '\n'.join(readmeLines)
-    print(readme)
     return (readme, lastLine)
 
 
 def main():
     destPath = 'output';
     # Define the multiline regular expression pattern
-    pattern = r'(\w+)\.(\w+)\n```[a-z]+\n((?:.|\n)+?)\n```'
+    pattern = r'(\w+)\.(\w+)[^\n]+\n```[a-z]+\n((?:.|\n)+?)\n```'
 
     # assume we're piped or redirected
     input_data = sys.stdin.read()
@@ -58,9 +56,6 @@ def main():
 
     linesWithBlocks = lines[lastLine-1:]
     concatenatedLines = '\n'.join(linesWithBlocks)
-
-    print('lines with blocks')
-    print(linesWithBlocks)
 
     # Find all matches using the pattern
     matches = re.findall(pattern, concatenatedLines, re.MULTILINE)
