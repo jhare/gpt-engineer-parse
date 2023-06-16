@@ -1,7 +1,7 @@
 import re
 import os
 import sys
-
+#################################################################
 # This script takes a markdown file with code blocks and
 # creates separate files for each code block.
 
@@ -24,8 +24,19 @@ import sys
 # The script assumes that the markdown file is in the format:
 # <README.md>
 # <code block>
+##################################################################
+
 
 def extract_readme(lines):
+    """
+    Extract the first section of the markdown file as the README.md file
+
+    :param lines: list of lin^es from the markdown file
+    :return a tuple of the README.md file and the line number of the last line
+            of the README.md file
+    :rtype tuple
+    """
+
     # Iterate through lines to find the first triple backticks,
     # saving all the lines before it into new variable readme
     readme = ''
