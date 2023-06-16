@@ -1,6 +1,7 @@
 import re
 import os
 import sys
+
 #################################################################
 # This script takes a markdown file with code blocks and
 # creates separate files for each code block.
@@ -39,40 +40,40 @@ def extract_readme(lines):
 
     # Iterate through lines to find the first triple backticks,
     # saving all the lines before it into new variable readme
-    readme = ''
+    readme = ""
     readme_lines = []
 
     for i, line in enumerate(lines):
-        if line.startswith('```'):
+        if line.startswith("```"):
             lastLine = i
             readme_lines.pop()
             break
-        else: # having else here drops off the first line of next
+        else:  # having else here drops off the first line of next
             readme_lines.append(line)
 
-    readme = '\n'.join(readme_lines)
+    readme = "\n".join(readme_lines)
     return (readme, lastLine)
 
 
 def main():
-    destPath = 'output';
+    destPath = "output"
     # Define the multiline regular expression pattern
-    pattern = r'(\w+)\.(\w+)(?:.{1}\:)?\n```[a-z]+\n((?:.|\n)+?)\n```'
+    pattern = r"(\w+)\.(\w+)(?:.{1}\:)?\n```[a-z]+\n((?:.|\n)+?)\n```"
 
     # assume we're piped or redirected
     input_data = sys.stdin.read()
-    lines = input_data.splitlines();
+    lines = input_data.splitlines()
 
-    (readme, lastLine) =  extract_readme(lines)
+    (readme, lastLine) = extract_readme(lines)
 
-    lines_with_blocks = lines[lastLine-1:]
-    files_after_readme = '\n'.join(lines_with_blocks)
+    lines_with_blocks = lines[lastLine - 1 :]
+    files_after_readme = "\n".join(lines_with_blocks)
 
     # Find all matches using the pattern
     matches = re.findall(pattern, files_after_readme, re.MULTILINE)
 
     if not matches:
-        print('Warning: No matching gpt-engineer codeblocks found in input!')
+        print("Warning: No matching gpt-engineer codeblocks found in input!")
         exit()
 
     # Create the "output" subdirectory if it doesn't exist
@@ -82,14 +83,14 @@ def main():
     # Iterate through the matches and create separate files
     for match in matches:
         filename, extension, file_contents = match
-        output_file = os.path.join(destPath, f'{filename}.{extension}')
-        with open(output_file, 'w') as file:
+        output_file = os.path.join(destPath, f"{filename}.{extension}")
+        with open(output_file, "w") as file:
             file.write(file_contents)
 
     # write the readme file
-    with open(f'{destPath}/README.md', 'w') as file:
+    with open(f"{destPath}/README.md", "w") as file:
         file.write(readme)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
