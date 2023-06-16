@@ -5,7 +5,7 @@ Separate the files from this prompt's [https://github.com/AntonOsika/gpt-enginee
 ## usage 
 Invoke main.py and it will parse what is on standard in
 
-`python main.py < gpt-engineer-output
+`python main.py < gpt-fizzbuzz-overkill-output.md`
 
 It produces files in `./output/`
 
