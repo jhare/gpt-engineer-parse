@@ -61,12 +61,22 @@ that `gpt-engineer` asks, this parses through all of that, generates a README.md
 
 ```
 
-filename.extension
-[block with backticks]
+Core classes, functions, and methods:
+- Lambda function: `fizzbuzz_lambda` - counts Fizzbuzz from 1 to n where n is passed to the lambda function
+- ExpressJS server: `server` - offers a REST endpoint that when contacted starts the fizzbuzz lambda
+- React application: `App` - main view of the application that contacts the lambda function to get the full fizzbuzz output string and display it in a Highlight component
+- Highlight component: `Highlight` - displays the full fizzbuzz output string
+- Button component: `Button` - contacts the REST API on click
+- Auth0 login component: `Auth0Login` - handles user authentication using Auth0
 
-filename.extension
-[block with backticks]
+fizzbuzz_lambda.py
+[backticks here Due to Markdown limitations the full output of gpt-engineer we have to omit. Three backticks begin and the file contents proceed]
 
+server.js
+[backticksgohere]javascript
+const express = require('express');
+const app = express();
+const aws = require('aws-sdk');
 
 ```
 So now you have code in files.
