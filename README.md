@@ -21,7 +21,7 @@ Do not label the file name of each file in the project.
 
 ## output
 ```
-(base) jhare@codythree:~/gpteng-output-breakout$ tree output
+$ tree output
 output
 ├── App.js
 ├── Auth0Login.js
