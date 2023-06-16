@@ -29,17 +29,17 @@ def extract_readme(lines):
     # Iterate through lines to find the first triple backticks,
     # saving all the lines before it into new variable readme
     readme = ''
-    readmeLines = []
+    readme_lines = []
 
     for i, line in enumerate(lines):
         if line.startswith('```'):
             lastLine = i
-            readmeLines.pop()
+            readme_lines.pop()
             break
         else: # having else here drops off the first line of next
-            readmeLines.append(line)
+            readme_lines.append(line)
 
-    readme = '\n'.join(readmeLines)
+    readme = '\n'.join(readme_lines)
     return (readme, lastLine)
 
 
@@ -54,11 +54,11 @@ def main():
 
     (readme, lastLine) =  extract_readme(lines)
 
-    linesWithBlocks = lines[lastLine-1:]
-    concatenatedLines = '\n'.join(linesWithBlocks)
+    lines_with_blocks = lines[lastLine-1:]
+    files_after_readme = '\n'.join(lines_with_blocks)
 
     # Find all matches using the pattern
-    matches = re.findall(pattern, concatenatedLines, re.MULTILINE)
+    matches = re.findall(pattern, files_after_readme, re.MULTILINE)
 
     if not matches:
         print('Warning: No matching gpt-engineer codeblocks found in input!')
