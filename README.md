@@ -1,10 +1,6 @@
 # gpteng-output-breakout
 
-Separate the files from this prompt's [https://github.com/jhare/gpt-engineer](gpt-engineer) output
-
-_note: do your best in your prompt to encourage the filenames to be on lines by themselves. Adding more parsing options
-but for now the multiline regex is simple_
-
+Separate the files from this prompt's [https://github.com/AntonOsika/gpt-engineer](gpt-engineer) output
 
 ## usage 
 Invoke main.py and it will parse what is on standard in
@@ -12,6 +8,18 @@ Invoke main.py and it will parse what is on standard in
 `python main.py < input_prompt`
 
 It produces files in `./output/`
+
+_Note: do your best in your prompt to encourage the filenames to be on lines by themselves. Adding more parsing options
+but for now the multiline regex is simple_
+
+__Note:Get clean filenames your prompt with this help: (it's not perfect)__
+```
+List filename for each block by themselves on a line before the block.
+Do not describe anything after the last code block.
+Do not label the file name of each file in the project.
+```
+
+## output
 ```
 (base) jhare@codythree:~/gpteng-output-breakout$ tree output
 output
@@ -26,12 +34,6 @@ output
 1 directory, 7 files
 ```
 
-**Get clean filenames your prompt with this help:** (it's not perfect)
-```
-List filename for each block by themselves on a line before the block.
-Do not describe anything after the last code block.
-Do not label the file name of each file in the project.
-```
 
 ### explanation
 
